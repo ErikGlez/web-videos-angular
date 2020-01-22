@@ -9,6 +9,10 @@ import { HomeComponent } from './components/home/home.component';
 import { ErrorComponent } from './components/error/error.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import { UserEditComponent } from './components/user-edit/user-edit.component';
+import { VideoNewComponent } from './components/video-new/video-new.component';
+import { IdentityGuard } from './services/identity.guard';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +20,9 @@ import { LoginComponent } from './components/login/login.component';
     HomeComponent,
     ErrorComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    UserEditComponent,
+    VideoNewComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +30,11 @@ import { LoginComponent } from './components/login/login.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [appRoutingProviders],
+  providers: [
+    appRoutingProviders,
+    IdentityGuard,
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
