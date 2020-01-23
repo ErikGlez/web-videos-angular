@@ -32,6 +32,7 @@ export class UserEditComponent implements OnInit {
   }
 
   onSubmit(form){
+    
     this._userService.update(this.token, this.user).subscribe(
       response =>{
         if(response && response.status == 'success'){
@@ -51,5 +52,7 @@ export class UserEditComponent implements OnInit {
         console.log(error);
       }
     );
+    
   }
+  
 }
