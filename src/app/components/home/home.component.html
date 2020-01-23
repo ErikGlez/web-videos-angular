@@ -28,6 +28,21 @@
       </article>
     </div>
 
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item">
+          <a class="page-link" [routerLink]="['/inicio', prev_page]">Anterior</a>
+        </li>
+        <li class="page-item" *ngFor="let num of number_pages">
+          <a class="page-link" [routerLink]="['/inicio',num]">{{num}}</a>
+        </li>
+        
+        <li class="page-item">
+          <a class="page-link" [routerLink]="['/inicio', next_page]">Siguiente</a>
+        </li>
+      </ul>
+    </nav>
+
 
 </div>
 
