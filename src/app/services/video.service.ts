@@ -54,7 +54,7 @@ export class VideoService{
   
         let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded').set('Authorization',token);
 
-        return this._http.delete(this.url+'video/remove'+id, {headers:headers});
+        return this._http.delete(this.url+'video/remove/'+id, {headers:headers});
     }
 
 }

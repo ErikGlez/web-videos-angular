@@ -34,6 +34,12 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.loadUser();
 
+    this.actualPageVideos();
+    
+    
+  }
+
+  actualPageVideos(){
     this._route.params.subscribe(params=>{
       var page = +params['page'];
       
@@ -45,8 +51,6 @@ export class HomeComponent implements OnInit {
 
       this.getVideos(page);
     });
-    
-    
   }
 
   loadUser() {
@@ -110,6 +114,17 @@ export class HomeComponent implements OnInit {
 
     return thumburl;
 
+  }
+
+  deleteVideo(id){
+    this._videoService.delete(this.token, id).subscribe(
+      response =>{
+        this.actualPageVideos();
+      },
+      error  =>{
+        console.log(error);
+      }
+    );
   }
 
 
