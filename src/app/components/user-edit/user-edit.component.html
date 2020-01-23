@@ -1,4 +1,41 @@
 <div class="col-md-12 mt-3">
     <h1>{{page_title}}</h1>
     <hr>
+
+    <!-- MENSAJES DE ALERTA  -->
+    <div class="alert alert-success col-md-5 mt-3" *ngIf="status == 'success'">
+        Datos actualizados correctamente
+    </div>
+    <div class="alert alert-danger col-md-5 mt-3" *ngIf="status == 'error'">
+        No fue posible actualizar los datos.
+    </div>
+
+    
+    <form class="col-md-5 ml-0 pl-0" #userEditForm="ngForm" (ngSubmit)="onSubmit(userEditForm)"> 
+        <div class="form-group">
+            <label for="name">Nombre</label>
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="user.name" class="form-control" required  pattern="[a-zA-ZÀ-ÿ ]+" />
+            <small *ngIf="!name.valid && name.touched" class="invalid-feedback d-block">
+                El nombre no es valido
+            </small>
+        </div>
+
+        <div class="form-group">
+            <label for="surname">Apellidos</label>
+            <input type="text" name="surname" #surname="ngModel" [(ngModel)]="user.surname" required pattern="[a-zA-ZÀ-ÿ ]+" class="form-control"/>
+            <small *ngIf="!surname.valid && surname.touched" class="invalid-feedback d-block">
+                Los apellidos no son validos
+            </small>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" #email="ngModel" [(ngModel)]="user.email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control"/>
+            <small *ngIf="!email.valid && email.touched" class="invalid-feedback d-block">
+                El email no es valido
+            </small>
+        </div>
+        
+
+        <input type="submit" value="Guardar" class="btn btn-success" [disabled]="userEditForm.invalid" />
+    </form>
 </div>
