@@ -13,6 +13,7 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { VideoNewComponent } from './components/video-new/video-new.component';
 import { IdentityGuard } from './services/identity.guard';
 import { UserService } from './services/user.service';
+import { VideoEditComponent } from './components/video-edit/video-edit.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { UserService } from './services/user.service';
     RegisterComponent,
     LoginComponent,
     UserEditComponent,
-    VideoNewComponent
+    VideoNewComponent,
+    VideoEditComponent
   ],
   imports: [
     BrowserModule,

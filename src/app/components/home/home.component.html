@@ -21,7 +21,7 @@
             <!-- Botones -->
             <div class="video-buttons mt-3">
               <a href="#" class="btn btn-success ml-5 mr-2">Leer</a>
-              <a href="#" class="btn btn-warning mr-2">Editar</a>
+              <a [routerLink]="['/editar-video',video.id]" class="btn btn-warning mr-2">Editar</a>
                 <!-- Button to Open the Modal -->
                 <button type="button" class="btn btn-primary" data-toggle="modal" [attr.data-target]="'#borrar'+video.id" >
                   Borrar
